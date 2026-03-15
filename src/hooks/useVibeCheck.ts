@@ -38,13 +38,8 @@ export function useVibeCheck() {
     );
   }, []);
 
-  const reorderLinks = useCallback((fromIndex: number, toIndex: number) => {
-    setLinks((prev) => {
-      const next = [...prev];
-      const [moved] = next.splice(fromIndex, 1);
-      next.splice(toIndex, 0, moved);
-      return next;
-    });
+  const reorderLinks = useCallback((newOrder: LinkItem[]) => {
+    setLinks(newOrder);
   }, []);
 
   return {

@@ -17,10 +17,7 @@ const Index = () => {
     updateLink,
   } = useVibeCheck();
 
-  const handleReorderLinks = (reordered: typeof links) => {
-    // Direct state replacement via parent — Reorder.Group gives us the new array
-    // We need to expose setLinks or use reorderLinks differently
-  };
+  const handleReorderLinks = reorderLinks;
 
   return (
     <div className="flex min-h-screen bg-background">
