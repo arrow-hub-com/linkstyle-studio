@@ -1,12 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useVibeCheck } from "@/hooks/useVibeCheck";
+import { EditorSidebar } from "@/components/vibecheck/EditorSidebar";
+import { PhonePreview } from "@/components/vibecheck/PhonePreview";
 
 const Index = () => {
+  const {
+    links,
+    activeVibe,
+    setActiveVibe,
+    displayName,
+    setDisplayName,
+    bio,
+    setBio,
+    addLink,
+    removeLink,
+    toggleSpotlight,
+    updateLink,
+    reorderLinks,
+  } = useVibeCheck();
+
+  const handleReorderLinks = reorderLinks;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="flex min-h-screen bg-background">
+      <EditorSidebar
+        links={links}
+        activeVibe={activeVibe}
+        displayName={displayName}
+        bio={bio}
+        onSetVibe={setActiveVibe}
+        onSetDisplayName={setDisplayName}
+        onSetBio={setBio}
+        onAddLink={addLink}
+        onRemoveLink={removeLink}
+        onToggleSpotlight={toggleSpotlight}
+        onUpdateLink={updateLink}
+        onReorderLinks={handleReorderLinks}
+      />
+      <PhonePreview
+        links={links}
+        activeVibe={activeVibe}
+        displayName={displayName}
+        bio={bio}
+      />
     </div>
   );
 };
