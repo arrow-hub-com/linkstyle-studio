@@ -15,6 +15,7 @@ const Index = () => {
     removeLink,
     toggleSpotlight,
     updateLink,
+    reorderLinks,
   } = useVibeCheck();
 
   const handleReorderLinks = reorderLinks;
